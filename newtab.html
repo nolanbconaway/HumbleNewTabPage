@@ -7,7 +7,15 @@
 <link rel="icon" href="icons/icon_16.png">
 </head>
 <body>
-<div id="main">
+<div id="two-column-layout">
+  <div id="original-content">
+    <!-- Original content will be dynamically inserted here -->
+    <div id="main">
+	</div>
+  </div>
+  <div id="iframe-container">
+    <iframe id="configurable-iframe" src="" frameborder="0"></iframe>
+  </div>
 </div>
 <a id="options_button" title="Options" tabindex="0"></a>
 <div id="options">
@@ -43,6 +51,13 @@
 		<label><span>Recently closed</span><input id="options_show_closed" type="checkbox"/></label>
 		<label class="subopt"><span>Number of items</span><input id="options_number_closed" type="number" min="1" max="25"/></label>
 		<label><span>Other devices</span><input id="options_show_devices" type="checkbox"/></label>
+	</fieldset>
+	<fieldset>
+		<legend>Iframe Settings</legend>
+		<label>
+			<span>Iframe URL</span>
+			<input id="iframe-url" type="url" placeholder="Enter iframe URL" />
+		</label>
 	</fieldset>
 	</div><div class="section">
 	<fieldset>

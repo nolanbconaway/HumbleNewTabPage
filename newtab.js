@@ -1578,9 +1578,45 @@ function showOptions(show) {
 	}
 }
 
+// Function to set iframe URL dynamically
+function setIframeURL(url) {
+  const iframe = document.getElementById('configurable-iframe');
+  if (iframe) {
+    iframe.src = url;
+  }
+}
+
+// Example usage: Set iframe URL from user input
+const iframeInput = document.createElement('input');
+iframeInput.type = 'text';
+iframeInput.placeholder = 'Enter iframe URL';
+iframeInput.addEventListener('change', (event) => {
+  setIframeURL(event.target.value);
+});
+
+document.body.appendChild(iframeInput);
+
+// Add event listener to iframe URL input
+const iframeUrlInput = document.getElementById('iframe-url');
+iframeUrlInput.addEventListener('input', (event) => {
+  const url = event.target.value;
+  setIframeURL(url);
+  localStorage.setItem('iframeURL', url); // Save URL to local storage
+});
+
+// Load saved iframe URL on page load
+window.addEventListener('DOMContentLoaded', () => {
+  const savedUrl = localStorage.getItem('iframeURL');
+  if (savedUrl) {
+    iframeUrlInput.value = savedUrl;
+    setIframeURL(savedUrl);
+  }
+});
+
 // initialize page
 loadSettings();
 loadColumns();
+
 
 // keyboard shortcuts
 document.addEventListener('keypress', function(event) {

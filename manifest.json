@@ -1,4 +1,4 @@
-{
+ 	{
 	"name": "Humble New Tab Page",
 	"short_name": "HNTP",
 	"version": "1.26.2",
@@ -27,5 +27,8 @@
 	"options_ui": {
 		"page": "newtab.html?options",
 		"open_in_tab": true
-	}
+	},
+	"content_security_policy": {
+       "extension_pages": "default-src 'self'; frame-src 'self' http: https:;"
+   }
 }
