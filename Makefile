@@ -9,7 +9,7 @@ FILES := manifest.json newtab.html newtab.css newtab.js icons/ media/
 all: $(ZIP_FILE)
 
 # Create the zip file
-$(ZIP_FILE):
+zip:
 	@echo "Creating zip file $(ZIP_FILE)..."
 	zip -r $(ZIP_FILE) $(FILES)
 
