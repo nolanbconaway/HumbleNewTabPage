@@ -33,7 +33,7 @@
    },
    "browser_specific_settings": {
       "gecko": {
-         "id": "humble_new_tab@git@github.com:nolanbconaway/HumbleNewTabPage.git"
+         "id": "humble_new_tab@local"
       }
    }
 }
