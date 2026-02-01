@@ -12,11 +12,8 @@
 	},
 	"permissions": [
 		"bookmarks",
-		"favicon",
 		"topSites",
-		"tabs",
-		"fontSettings",
-		"sessions"
+		"tabs"
 	],
 	"optional_host_permissions": [
 		"file:///"
@@ -33,7 +30,10 @@
    },
    "browser_specific_settings": {
       "gecko": {
-         "id": "humble_new_tab@local"
+         "id": "humble_new_tab@local",
+         "data_collection_permissions": {
+            "required": ["none"]
+         }
       }
    }
 }

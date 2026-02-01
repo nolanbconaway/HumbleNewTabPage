@@ -1613,6 +1613,43 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// Function to set iframe width dynamically
+function setIframeWidth(percentage) {
+  const iframeContainer = document.getElementById('iframe-container');
+  const originalContent = document.getElementById('original-content');
+
+  if (percentage > 0) {
+    iframeContainer.style.flex = `0 0 ${percentage}%`;
+    originalContent.style.flex = `0 0 ${100 - percentage}%`;
+  } else {
+    iframeContainer.style.flex = '0 0 0';
+    originalContent.style.flex = '1';
+  }
+}
+
+// Add event listener to iframe width input
+const iframeWidthInput = document.getElementById('iframe-width');
+iframeWidthInput.addEventListener('input', (event) => {
+  const percentage = parseInt(event.target.value, 10) || 0;
+  setIframeWidth(percentage);
+  localStorage.setItem('iframeWidth', percentage); // Save width to local storage
+});
+
+// Load saved iframe width on page load
+window.addEventListener('DOMContentLoaded', () => {
+  const savedWidth = parseInt(localStorage.getItem('iframeWidth'), 10);
+  const iframeUrl = localStorage.getItem('iframeURL');
+
+  let defaultWidth = 0;
+  if (iframeUrl && iframeUrl.trim() !== '') {
+    defaultWidth = 50; // Default to 50% if a page is configured
+  }
+
+  const widthToSet = savedWidth !== null ? savedWidth : defaultWidth;
+  iframeWidthInput.value = widthToSet;
+  setIframeWidth(widthToSet);
+});
+
 // initialize page
 loadSettings();
 loadColumns();

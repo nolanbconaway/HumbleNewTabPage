@@ -305,22 +305,26 @@ input[type="file"]::-webkit-file-upload-button {
   display: flex;
   flex-direction: row;
   height: 100vh;
-}
-
-#original-content {
-  flex: 1;
-  overflow-y: auto;
+  width: 100vw; /* Ensure the layout spans the full width of the viewport */
+  box-sizing: border-box; /* Include padding and borders in the element's total width and height */
+  overflow: hidden; /* Prevent content overflow */
 }
 
 #iframe-container {
-  flex: 1;
+  flex: 0 0 0; /* Default to 0% width */
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 #iframe-container iframe {
   width: 100%;
   height: 100%;
   border: none;
+}
+
+#original-content {
+  flex: 1;
+  overflow-y: auto;
 }
